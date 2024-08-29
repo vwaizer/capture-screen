@@ -1,13 +1,13 @@
 import puppeteer, { Page } from 'puppeteer';
 
-async function main(start, end) {
+async function main(start, end,link) {
 	let i = start
 	if (start < 1) {
 		i = 1
 	}
 	const browser = await puppeteer.launch({ headless: false });
 	const page = await browser.newPage();
-	await page.goto('http://localhost:3000/en/instructions/82');
+	await page.goto(link);
 	// const { screenWidth, screenHeight } = await page.evaluate(() => {
 	//   return {
 	//     screenWidth: window.screen.width,
@@ -48,7 +48,7 @@ async function main(start, end) {
 	await browser.close();
 
 };
-main(1, 5)
+main(1, 5,'http://localhost:3000/en/instructions/82')
 const captureScreen = async (showElement, clickElement, i, end, page, clip) => {
 	if (i <= end) {
 		setTimeout(async () => {
